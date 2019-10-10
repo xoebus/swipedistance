@@ -5,12 +5,12 @@ import (
 	"strings"
 )
 
-type Coordinate struct {
+type coordinate struct {
 	X int
 	Y int
 }
 
-var coords = map[rune]Coordinate{
+var coords = map[rune]coordinate{
 	'Q': {42, 52},
 	'W': {122, 52},
 	'E': {201, 52},
@@ -39,7 +39,7 @@ var coords = map[rune]Coordinate{
 	'M': {629, 266},
 }
 
-func (c Coordinate) DistanceTo(other Coordinate) float64 {
+func (c coordinate) distanceTo(other coordinate) float64 {
 	xd := float64(other.X - c.X)
 	yd := float64(other.Y - c.Y)
 
@@ -56,7 +56,7 @@ func Distance(word string) (float64, bool) {
 
 	word = strings.ToUpper(word)
 
-	var previous Coordinate
+	var previous coordinate
 	var sum float64
 	for i, c := range word {
 		next, found := coords[c]
@@ -65,7 +65,7 @@ func Distance(word string) (float64, bool) {
 		}
 
 		if i != 0 {
-			sum += previous.DistanceTo(next)
+			sum += previous.distanceTo(next)
 		}
 
 		previous = next

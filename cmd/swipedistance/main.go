@@ -13,7 +13,7 @@ func main() {
 
 	for scanner.Scan() {
 		word := scanner.Text()
-		dist, ok := swipedistance.Distance(word)
+		dist, ok := swipedistance.Sum(word)
 		if !ok {
 			continue
 		}

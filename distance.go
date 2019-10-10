@@ -49,6 +49,10 @@ func (c coordinate) distanceTo(other coordinate) float64 {
 	return math.Sqrt(xd2 + yd2)
 }
 
+// Distance returns the swipe distance required to type the word. The result
+// has no units associated with it. Results are not guaranteed to be comparable
+// between different versions of the package. If there is a character in the
+// word which cannot be typed then the second argument will be false.
 func Distance(word string) (float64, bool) {
 	if len(word) <= 1 {
 		return 0, true

@@ -1,0 +1,11 @@
+swipedistance
+
+A library and tool for investigating the distance required for swiping words on
+iOS 13.
+
+# usage
+
+  cat /usr/share/dist/words | swipedistance
+
+The first column is the total swipe distance, the second column is the swipe
+distance per character, and the final column is the word itself.
